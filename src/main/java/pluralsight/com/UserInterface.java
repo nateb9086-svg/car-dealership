@@ -1,11 +1,25 @@
 package pluralsight.com;
+import java.util.List;
 import java.util.Scanner;
 
 public class UserInterface {
 
     private Scanner scanner = new Scanner(System.in);
+    private Dealership dealership;
+
+    private void init() {
+        DealershipFileManager fileManager = new DealershipFileManager();
+        dealership = fileManager.getDealership();
+    }
+
+    private void displayVehicles(List<Vehicle> vehicles) {
+        for (Vehicle vehicle : vehicles) {
+            System.out.println(vehicle);
+        }
+    }
 
     public void display() {
+        init();
         int choice = -1;
 
         while (choice != 0) {
@@ -56,7 +70,11 @@ public class UserInterface {
     private void processGetByColorRequest() {}
     private void processGetByMileageRequest() {}
     private void processGetByVehicleTypeRequest() {}
-    private void processGetAllVehiclesRequest() {}
+
+    private void processGetAllVehiclesRequest() {
+        List<Vehicle> vehicles = dealership.getAllVehicles();
+        displayVehicles(vehicles);
+    }
     private void processAddVehicleRequest() {}
     private void processRemoveVehicleRequest() {}
 
