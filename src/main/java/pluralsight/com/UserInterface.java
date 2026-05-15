@@ -122,7 +122,7 @@ public class UserInterface {
             new DealershipFileManager().saveDealership(dealership);
             System.out.println("Vehicle added.");
         } catch (NumberFormatException e) {
-            System.out.println("Invalid input. Vehicle not added.");
+            System.out.println("Invalid input. Vehicle is not added.");
         }
     }
     private void processRemoveVehicleRequest() {
